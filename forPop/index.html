@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>for - Pop</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(fruta, key) in frutas">{{fruta}}</li>
+    </ul>
+    <button @click="removerItem">Remover</button>
+    <button @click="modificarItem">Modificar</button>
+
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        frutas: ['Maça', 'Banana', 'Uva', 'Kiwi'],
+        novos: ['Abacaxi', 'Goiaba', 'Laranja']
+      },
+      methods: {
+        removerItem(){
+          this.frutas.pop()
+        },
+        modificarItem(){
+          this.$set(this.frutas, 0, 'Manga')
+        }
+      }
+  })
+  </script> 
+</body>
+</html>

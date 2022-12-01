@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>for - Objeto</title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li v-for="(estado, index) in estados">{{estado.populacao}}</li>
+      <li v-for="({nome}) in estados">{{nome}}</li>
+    </ul>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+      estados: {
+        sp: {
+          populacao: "45 milhoes",
+          nome: "São Paulo"
+        },
+        mg: {
+          populacao: "25 milhoes",
+          nome: "Minas Gerais"
+        },
+        rj: {
+          populacao: "49 milhoes",
+          nome: "Rio de Janeiro"
+        },
+      }
+    }
+  })
+  </script> 
+</body>
+</html>

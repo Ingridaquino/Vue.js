@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<body>
+  <div id="app">
+      <div v-html="lista" v-once></div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+      lista: '<ul><li>Item1</li><li>Item2</li><li>Item3</li></ul>'
+    }
+    })
+  </script> 
+</body>
+</html>

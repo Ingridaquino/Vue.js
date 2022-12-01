@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Class</title>
+</head>
+<body>
+  <style>
+    .verde {
+      color: green;
+      font-size: 4rem;
+    }
+
+    .vermelho {
+      background-color: red;
+    }
+
+
+  </style>
+  
+  <div id="app">
+    <p :class="[cor, {ativo: estadoAtivo}]">Testo verde</p>
+
+    <p :class="{ativo: estadoAtivo}">Mostrar texto</p>
+
+    <button @click="estaAtivo">Click</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        cor: "verde",
+        background: "vermelho",
+        estadoAtivo: false,
+        elementoVerde: false,
+      },
+      methods: {
+        estaAtivo(){
+         return this.estadoAtivo = !estadoAtivo
+        }
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>

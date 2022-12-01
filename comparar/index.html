@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .verde {
+      color: green;
+    }
+
+    .vermelho {
+      color: red;
+    }
+  </style>
+  
+  <div id="app">
+    <div>
+      <p>{{apple.companyName}}</p>
+      <p :class="google.marketCap > apple.marketCap ? 'verde' : 'vermelho' ">{{apple.marketCap}}</p>
+    </div>
+
+    <div>
+      <p>{{google.companyName}}</p>
+      <p :class="apple.marketCap > google.marketCap ? 'verde' : 'vermelho' ">{{google.marketCap}}</p>
+    </div>
+    <button @click="puxarDados">Puxar</button>
+  </div>
+
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        google: {},
+        apple: {},
+      },
+      methods: {
+        puxarApple(){
+          fetch('https://api.origamid.dev/stock/aapl/quote')
+            .then(response => response.json())
+            .then(json => {
+              this.apple = json
+              console.log(json)
+            })
+        },
+
+        puxarGoogle(){
+          fetch('https://api.origamid.dev/stock/googl/quote')
+            .then(response => response.json())
+            .then(json => {
+              this.google = json
+              console.log(json)
+            })
+        },
+
+        puxarDados(){
+          this.puxarGoogle();
+          this.puxarApple();
+        }
+      }
+    })
+
+
+
+  </script>
+</body>
+</html>

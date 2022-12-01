@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>Vue.js</title>
+</head>
+<body>
+  <div id="app">
+    <button @click="fetchCep">Puxar CEP</button>
+    <ul>
+      <li v-for="(dado, chave) in acoes">
+        {{chave}}: {{dado}}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        acoes: {},
+     },
+     methods: {
+      fetchCep(){
+        fetch('https://viacep.com.br/ws/04538133/json/')
+        .then(resp => resp.json())
+        .then(resp => {
+          this.acoes = resp
+          console.log(json)
+        })
+      }
+     }
+    })
+
+
+  </script> 
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>v-model</title>
+</head>
+
+<body>
+
+<div id="app">
+
+  <input type="text" v-model.lazy="nome"><br><br> <!--Lento-->
+  <input type="text" v-model.trim="email"> <!--Tira os espaco em branco-->
+  <input type="text" v-model.number="ano"> <!--retorn number->
+
+
+
+
+  <input type="checkbox" name="receberEmail" v-model="receberEmail">Receber Email
+
+  <p>nome: {{nome}}</p>
+  <p>email: {{email}}</p>
+  <p>{{receberEmail}}</p>
+
+</div>
+
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        nome: "",
+        email: "",
+        receberEmail: true,
+      }
+    })
+  </script>
+
+
+  <style>
+  
+  </style>
+</body>
+
+</html>

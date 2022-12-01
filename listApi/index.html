@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>List </title>
+</head>
+<body>
+  <div id="app">
+    <ul>
+      <li><a @click.prevent="fetchApi" href="https://api.origamid.dev/stock/aapl/quote">Apple</a></li>
+      <li><a @click.prevent="fetchApi" href="https://api.origamid.dev/stock/googl/quote">Google</a></li>
+      <li><a @click.prevent="fetchApi" href="https://api.origamid.dev/stock/amzn/quote">Amazon</a></li>
+      <li><a @click.prevent="fetchApi" href="https://api.origamid.dev/stock/ebay/quote">Ebay</a></li>
+      <li><a @click.prevent="fetchApi" href="https://api.origamid.dev/stock/pypl/quote">Paypal</a></li>
+    </ul>
+
+    <p>Empresa: {{acao.companyName}}</p>
+    <p>Valor da Ação: {{acao.latestPrice}}</p>
+    <p>Valor de Mercador: {{acao.marketCap}}</p>
+
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+      acao:{},
+    },
+    methods: {
+      fetchApi(){
+        const url = event.currentTarget.href
+
+        fetch(url).then(r => r.json()).then(json => {
+          this.acao = json
+          console.log(json)
+        })
+      }
+    }
+    })
+
+  </script> 
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>if-else</title>
+</head>
+<body>
+  <div id="app">
+    <template>
+      <p>Produto: {{estoque}}</p>
+      <button v-show="estoque > 0" @click="adicionar">+</button>
+      <button @click="diminuir">-</button>
+      <p>Carrinho: {{carrinho}}</p>
+    </template>
+
+    <template v-else>
+      <p>Não ser possível adicionar mais do que 7 itens</p>
+    </template>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+      carrinho: 0,
+      estoque: 7,
+    },
+    methods: {
+      adicionar(){
+        this.carrinho++
+        this.estoque--
+      },
+      diminuir(){
+        this.carrinho--
+        this.estoque++
+      },
+    }
+    })
+
+  </script> 
+</body>
+</html>

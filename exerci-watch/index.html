@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./vue.js"></script>
+  <title>watch - Assincrono</title>
+</head>
+<body>
+  <!--
+  Você possui o nome e sobrenome do usuário em data,
+  crie uma propriedade computed que retorne o nome completo
+  
+  Utilize a rest API para puxar as capitais dos paises
+  Use um campo de select, onde o usuário pode selecionar o país.
+  https://restcountries.com/v2/all
+
+  Com uma função watch, mude a capital de acordo com o país selecionado:
+
+  Ex de campo select:
+
+  <select name="paises" id="paises" v-model="selecionado">
+    <option v-for="pais in paises" :value="pais.name">
+      {{pais.name}}
+    </option>
+  </select>
+-->
+
+  <div id="app">
+    <p>{{nomeCompleto}}</p>
+    </select>
+  </div>
+   
+
+  <script>
+
+const vm = new Vue({
+  el: "#app",
+  data: {
+    nome:"Amora",
+    sobrenome:"Lee",
+    paises: {}
+  },
+  computed: {
+    nomeCompleto(){
+      return this.nome + ' ' + this.sobrenome
+    }
+  },
+})
+
+  </script> 
+</body>
+</html>
