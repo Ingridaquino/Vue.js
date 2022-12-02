@@ -2,7 +2,7 @@ const vm = new Vue({
   el: "#app",
   data : {
     produtos: [],
-    produto: {},
+    produto: true,
   },
   filters:{
     numeroPreco(valor){
@@ -24,6 +24,17 @@ const vm = new Vue({
         .then(resp => {
           this.produto = resp;
         })
+    },
+      abrirModal(id){
+        this.fetchProduto(id);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        })
+      },
+    fecharModal({target, currentTarget}){
+      if(target === currentTarget)
+      this.produto = false;
     }
   },
   created(){
