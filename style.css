@@ -14,6 +14,34 @@ body{
   font-family: 'Noto serif', serif;
 }
 
+/*HEADER*/
+.header {
+  display:flex;
+  justify-content: space-between;
+  max-width: 900px;
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 80px;
+}
+
+.carrinho_menu::after {
+  content: "";
+  display: inline-block;
+  background: url("./assets/carrinho.svg") no-repeat center center;
+  width: 25px;
+  height: 25px;
+  margin-left: 10px;
+}
+
+.carrinho_menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 #app {
   padding: 0 80px;
 }
@@ -141,6 +169,10 @@ body{
   padding: 10px 25px;
   font-family: "Noto serif";
   transition: background 0.1s;
+}
+
+.modal_btn.esgotado {
+  background:#808080;
 }
 
 .modal_btn:active {
