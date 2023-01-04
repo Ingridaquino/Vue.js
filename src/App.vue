@@ -1,28 +1,43 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p>{{mensagem}}</p>
+    <HeaderPrincipal />
+    <modal-principal></modal-principal>
+
+    <button @click="componenteAtivo = 'AulaPrincipal'">Principal</button>
+    <button @click="componenteAtivo = 'AulaDownloads'">Download</button>
+
+    <keep-alive>
+      <component :is="componenteAtivo"></component>
+    </keep-alive>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderPrincipal from "./components/HeaderPrincipal.vue"
+import ModalPrincipal from "./components/Modal.vue"
+import AulaDownloads from "./components/dynamic/AulaDownloads.vue"
+import AulaPrincipal from "./components/dynamic/AulaPrincipal.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderPrincipal,
+    ModalPrincipal,
+    AulaDownloads, 
+    AulaPrincipal
+  },
+  data() {
+    return {
+      mensagem: "Essa é uma mensagem",
+      componenteAtivo: "AulaPrincipal"
+
+    }
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
